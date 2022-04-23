@@ -1,0 +1,63 @@
+﻿@model IEnumerable<LibraryManager.Models.Science>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+
+    <div class="text-center">
+        <h2 class="display-4 ">Science Management</h2>
+
+        <div class="d-grid gap-2 col-6 mx-auto mt-5">
+            <a class="btn btn-dark d-block shadow-lg p-3 rounded font-weight-light" asp-action="Create" asp-controller="Sciences">
+            <i class="fa fa-plus" aria-hidden="true"></i> New Science
+
+            </a>
+        </div>
+    </div>
+
+    <div class="container row p-5 text-center font-weight-normal">
+        @if (Model.Count() > 0)
+        {
+            <div class="card mt-3 w-100">
+            
+                 <table class="table  table-striped">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(e => e.Name)</th>
+
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+
+
+                            <td>
+                                <a class="btn btn-warning" asp-controller="Sciences" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pen"></i></a>
+                                <a class="btn btn-danger" asp-controller="Sciences" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            </div>
+        }
+        else
+        {
+            <div class="text-center pt-5 w-100">
+                <p>
+                    <i> No Sciences in List. To Add a new Language click on <strong>"New Science"</strong>.</i>
+                </p>
+            </div>
+        }
+
+    </div>
+
+</div>

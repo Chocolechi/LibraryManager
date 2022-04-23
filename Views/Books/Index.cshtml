@@ -1,0 +1,79 @@
+﻿@model IEnumerable<LibraryManager.Models.Book>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+
+    <div class="text-center">
+        <h2 class="display-4 ">Book Managment</h2>
+
+        <div class="d-grid gap-2 col-6 mx-auto mt-5">
+            <a class="btn btn-dark d-block shadow-lg p-3 rounded font-weight-light" asp-action="Create" asp-controller="Books">
+            <i class="fa fa-plus" aria-hidden="true"></i> New Book
+
+            </a>
+        </div>
+    </div>
+
+    <div class="container row p-5 text-center font-weight-normal">
+        @if (Model.Count() > 0)
+        {
+            <div class="card mt-3 w-100">
+            
+                 <table class="table w-100 table-striped">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(e => e.Name)</th>
+                        <th>@Html.DisplayNameFor(e => e.Description)</th>
+                        <th>@Html.DisplayNameFor(e => e.ISBN)</th>
+                        <th>@Html.DisplayNameFor(e => e.Bibliography)</th>
+                        <th>@Html.DisplayNameFor(e => e.Author)</th>
+                        <th>@Html.DisplayNameFor(e => e.Editorial)</th>
+                        <th>@Html.DisplayNameFor(e => e.DateReleased)</th>
+                        <th>@Html.DisplayNameFor(e => e.Science)</th>
+                        <th>@Html.DisplayNameFor(e => e.Language)</th>
+
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Description</td>
+                            <td>@item.ISBN</td>
+                            <td>@item.Bibliography.Name</td>
+                            <td>@item.Author.Name</td>
+                            <td>@item.Editorial.Name</td>
+                            <td>@item.DateReleased</td>
+                            <td>@item.Science.Name</td>
+                            <td>@item.Language.Name</td>
+
+
+                            <td>
+                                <a class="btn btn-warning" asp-controller="Books" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pen"></i></a>
+                                <a class="btn btn-danger" asp-controller="Books" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            </div>
+        }
+        else
+        {
+            <div class="text-center pt-5 w-100">
+                <p>
+                    <i> No Books in List. To Add a new Book click on <strong>"New Book"</strong>.</i>
+                </p>
+            </div>
+        }
+
+    </div>
+
+</div>

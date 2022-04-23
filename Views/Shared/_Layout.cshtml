@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LibraryManager</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body style="color: black;background-color: #deebdd;background-image: linear-gradient(315deg, #deebdd 0%, #bbdbbe 74%);" ;>
+
+    <div class="wrapper d-flex align-items-stretch">
+
+        @*This wrapper contains 2 parts the sidebar one and the content one*@
+
+
+        @*PAGE SIDEBAR*@
+        <nav id="sidebar">
+            <div class="p-4 pt-5">
+                <a class="img logo rounded-circle mb-5" asp-area=" asp-controller=" Home" asp-action="Index" style="background-image: url(/images/logo.png);"></a>
+                <ul class="list-unstyled components mb-5">
+
+                    <li class="active">
+                        <a href="/" data-toggle="" aria-expanded="false">Home</a>
+                    </li>
+
+                    <li>
+                        <a asp-area="" asp-controller="" asp-action="" class="">Book Borrowing</a>
+
+                    </li>
+             
+                    <li>
+                        <a href="#">Reports</a>
+                    </li>
+
+                    <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Management</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+
+                            <li>
+                                <a asp-area="" asp-controller="Books" asp-action="Index">Book</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Authors" asp-action="Index">Author</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Editorials" asp-action="Index">Editorial</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Bibliographies" asp-action="Index">Bibliography</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Language" asp-action="Index">Language</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Sciences" asp-action="Index">Science</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Users" asp-action="Index">User</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Employees" asp-action="Index">Employee</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+
+
+                </ul>
+
+
+            </div>
+        </nav>
+
+        @*PAGE CONTENT*@
+        <div id="content" class="p-4 p-md-5">
+
+            <header>
+
+                <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3">
+                    <div class="container-fluid">
+
+                        <a class="navbar-brand font-weight-normal" asp-area="" asp-controller="Home" asp-action="Index"><i class="fa fa-home"></i> Library Manager</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="d-sm-inline-flex justify-content-between">
+
+                            <ul class="nav navbar-nav ml-auto navbar-nav flex-grow-1 font-weight-normal d-flex ">
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+
+                                <li class="nav-item ">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <div class="container">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+
+            <div class="footer text-center">
+                <p class="text-dark">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> All rights reserved | by <a href="https://github.com/Dav-MM" target="_blank">Dav</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+</body>
+</html>

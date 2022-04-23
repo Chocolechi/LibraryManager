@@ -1,0 +1,89 @@
+﻿
+@model LibraryManager.Models.Book
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    List<SelectListItem> authors = (List<SelectListItem>)ViewBag.author; 
+    List<SelectListItem> bibliography = (List<SelectListItem>)ViewBag.bibliography; 
+    List<SelectListItem> science = (List<SelectListItem>)ViewBag.science; 
+    List<SelectListItem> editorial = (List<SelectListItem>)ViewBag.editorial;
+    List<SelectListItem> language = (List<SelectListItem>)ViewBag.language;
+}
+
+
+<div class="container">
+
+    <div class="text-center">
+        <h2 class="display-4">Create Book</h2>
+    </div>
+
+    <div class="row m-5  p-4">
+        <div class="col-sm-10 mx-auto">
+            <form method="post" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control " />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control " />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ISBN" class="control-label"></label>
+                    <input asp-for="ISBN" class="form-control" />
+                    <span asp-validation-for="ISBN" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Bibliography" class="control-label"></label>
+                    @*<select name="bibliography" class="form-control" asp-items="@ViewBag.bibliography"></select>*@
+                    @Html.DropDownListFor(m => m.BibliographyId,  (IEnumerable<SelectListItem>)bibliography, "Please select", new {@class="form-control"})
+                    <span asp-validation-for="Bibliography" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Author" class="control-label"></label>
+                    @*<select name="author" class="form-control bg-light" asp-items="@ViewBag.author"></select>*@
+                    @Html.DropDownListFor(m => m.AuthorId, authors, "Please select", new {@class="form-control"})
+                    <span asp-validation-for="AuthorId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Editorial" class="control-label"></label>
+                    @*<select name="editorial" class="form-control bg-light" asp-items="@ViewBag.editorial"></select>*@
+                    @Html.DropDownListFor(m => m.EditorialId, editorial, "Please select", new {@class="form-control"})
+                    <span asp-validation-for="EditorialId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateReleased" class="control-label"></label>
+                    <input asp-for="DateReleased" class="form-control" />
+                    <span asp-validation-for="DateReleased" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ScienceId" class="control-label"></label>
+                    @*<select name="science" class="form-control bg-light" asp-items="@ViewBag.science"></select>*@
+                    @Html.DropDownListFor(m => m.ScienceId, science, "Please select", new {@class="form-control"})
+                    <span asp-validation-for="ScienceId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LanguageId" class="control-label"></label>
+                    @*<select name="language" class="form-control bg-light" asp-items="@ViewBag.language"></select>*@
+                    @Html.DropDownListFor(m => m.LanguageId, language, "Please select", new {@class="form-control"})
+                    <span asp-validation-for="LanguageId" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group pt-5">
+                    <input type="submit" value="Add" class="form-control btn btn-dark" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
