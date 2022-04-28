@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LibraryManager.Migrations
 {
-    public partial class committingSomeChanges : Migration
+    public partial class firstOne : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,6 +33,19 @@ namespace LibraryManager.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bibliography", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BookStatus",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Status_Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookStatus", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -137,7 +150,9 @@ namespace LibraryManager.Migrations
                     EditorialId = table.Column<int>(type: "int", nullable: false),
                     DateReleased = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ScienceId = table.Column<int>(type: "int", nullable: false),
-                    LanguageId = table.Column<int>(type: "int", nullable: false)
+                    LanguageId = table.Column<int>(type: "int", nullable: false),
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    BookStatusId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -154,6 +169,12 @@ namespace LibraryManager.Migrations
                         principalTable: "Bibliography",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Book_BookStatus_BookStatusId",
+                        column: x => x.BookStatusId,
+                        principalTable: "BookStatus",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Book_Editorial_EditorialId",
                         column: x => x.EditorialId,
@@ -237,6 +258,11 @@ namespace LibraryManager.Migrations
                 column: "BibliographyId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Book_BookStatusId",
+                table: "Book",
+                column: "BookStatusId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Book_EditorialId",
                 table: "Book",
                 column: "EditorialId");
@@ -294,6 +320,9 @@ namespace LibraryManager.Migrations
 
             migrationBuilder.DropTable(
                 name: "Bibliography");
+
+            migrationBuilder.DropTable(
+                name: "BookStatus");
 
             migrationBuilder.DropTable(
                 name: "Editorial");

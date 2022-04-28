@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryManager.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220425135925_committingSomeChanges")]
-    partial class committingSomeChanges
+    [Migration("20220428144623_firstOne")]
+    partial class firstOne
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,6 +70,12 @@ namespace LibraryManager.Migrations
                     b.Property<int>("BibliographyId")
                         .HasColumnType("int");
 
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BookStatusId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DateReleased")
                         .HasColumnType("datetime2");
 
@@ -97,6 +103,8 @@ namespace LibraryManager.Migrations
 
                     b.HasIndex("BibliographyId");
 
+                    b.HasIndex("BookStatusId");
+
                     b.HasIndex("EditorialId");
 
                     b.HasIndex("LanguageId");
@@ -104,6 +112,21 @@ namespace LibraryManager.Migrations
                     b.HasIndex("ScienceId");
 
                     b.ToTable("Book");
+                });
+
+            modelBuilder.Entity("LibraryManager.Models.BookStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Status_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BookStatus");
                 });
 
             modelBuilder.Entity("LibraryManager.Models.Editorial", b =>
@@ -284,6 +307,10 @@ namespace LibraryManager.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("LibraryManager.Models.BookStatus", "BookStatus")
+                        .WithMany()
+                        .HasForeignKey("BookStatusId");
+
                     b.HasOne("LibraryManager.Models.Editorial", "Editorial")
                         .WithMany()
                         .HasForeignKey("EditorialId")
@@ -305,6 +332,8 @@ namespace LibraryManager.Migrations
                     b.Navigation("Author");
 
                     b.Navigation("Bibliography");
+
+                    b.Navigation("BookStatus");
 
                     b.Navigation("Editorial");
 

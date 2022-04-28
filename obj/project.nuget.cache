@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4G8ggDoKsvEI0jtzOcaPq4CtD1e8t2jIiYvebufDkY5GbrViQ68XZV8S7Dx0WegaAXYvtwkxF/dH5U4hdeRPQg==",
+  "dgSpecHash": "kg4Vh3YYSpTIoO1zfyna7aAxe4Vv7zTLGuiwLNLc2vGzR0loHIKhmyA1f5uZiIH389Gc/EZ5qbTy7oy28PjlcQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Pepo\\source\\repos\\Dav-MM\\LibraryManager00\\LibraryManager\\LibraryManager.csproj",
+  "projectFilePath": "C:\\Users\\Pepo\\Desktop\\klk\\LibraryManager00\\LibraryManager\\LibraryManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pepo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Pepo\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

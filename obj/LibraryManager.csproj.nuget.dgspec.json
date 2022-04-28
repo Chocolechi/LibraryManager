@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pepo\\source\\repos\\Dav-MM\\LibraryManager00\\LibraryManager\\LibraryManager.csproj": {}
+    "C:\\Users\\Pepo\\Desktop\\klk\\LibraryManager00\\LibraryManager\\LibraryManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pepo\\source\\repos\\Dav-MM\\LibraryManager00\\LibraryManager\\LibraryManager.csproj": {
+    "C:\\Users\\Pepo\\Desktop\\klk\\LibraryManager00\\LibraryManager\\LibraryManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pepo\\source\\repos\\Dav-MM\\LibraryManager00\\LibraryManager\\LibraryManager.csproj",
+        "projectUniqueName": "C:\\Users\\Pepo\\Desktop\\klk\\LibraryManager00\\LibraryManager\\LibraryManager.csproj",
         "projectName": "LibraryManager",
-        "projectPath": "C:\\Users\\Pepo\\source\\repos\\Dav-MM\\LibraryManager00\\LibraryManager\\LibraryManager.csproj",
+        "projectPath": "C:\\Users\\Pepo\\Desktop\\klk\\LibraryManager00\\LibraryManager\\LibraryManager.csproj",
         "packagesPath": "C:\\Users\\Pepo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pepo\\source\\repos\\Dav-MM\\LibraryManager00\\LibraryManager\\obj\\",
+        "outputPath": "C:\\Users\\Pepo\\Desktop\\klk\\LibraryManager00\\LibraryManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Pepo\\AppData\\Roaming\\NuGet\\NuGet.Config",
